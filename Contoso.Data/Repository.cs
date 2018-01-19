@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Contoso.Data
 {
-    abstract class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly IDbSet<T> dbSet;
         protected ContosoDbContext _context;

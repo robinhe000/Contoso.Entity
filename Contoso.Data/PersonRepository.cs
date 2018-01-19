@@ -7,17 +7,21 @@ using System.Threading.Tasks;
 
 namespace Contoso.Data
 {
-    public class PersonRepository : Repository<People>, IPersonRepository
+     public class PersonRepository : Repository<People>, IPersonRepository
     {
         public PersonRepository(ContosoDbContext context) : base(context)
         {
         }
 
-        public People GetByLastName(string lastname)
+        public People GetByLastName(string lastname) 
         {
-            var person = _context.People.Where(p => p.LastName == lastname);
+            var person = _context.People.Where(p => p.LastName == lastname).FirstOrDefault();
                 return person;
         }
-        public interface IPersonRepository: 
+         
+    }
+    public interface IPersonRepository : IRepository<People>
+    {
+
     }
 }

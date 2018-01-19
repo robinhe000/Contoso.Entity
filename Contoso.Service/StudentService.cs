@@ -1,4 +1,5 @@
-﻿using Contoso.Model;
+﻿using Contoso.Data;
+using Contoso.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +15,27 @@ namespace Contoso.Service
         {
             _studentRepository = studentRepository;
         }
+
+        public IEnumerable<Student> GetStudent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Student GetStudentByLastName(string lastname)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Student> GetStudents()
         {
             return _studentRepository.GetAll();
         }
 
-        public interface IStudentService
-        {
-            IEnumerable<Student> GetStudent();
-            Student GetStudentByLastName(string lastname);
-        }
+        
+    }
+    public interface IStudentService
+    {
+        IEnumerable<Student> GetStudent();
+        Student GetStudentByLastName(string lastname);
     }
 }

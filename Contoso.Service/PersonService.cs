@@ -26,13 +26,14 @@ namespace Contoso.Service
         }
         public People GetPersonById(int id)
         {
-            return _personRepository;
+            return _personRepository.GetById(id);
         }
-        public interface IPersonService
-        {
-            IEnumerable<People> GetAll();
-            People GetPersonById(int Id);
-            void AddPerson(People people);
-        }
+    
+    }
+    public interface IPersonService
+    {
+        IEnumerable<People> GetAll();
+        People GetPersonById(int Id);
+        void AddPerson(People people);
     }
 }

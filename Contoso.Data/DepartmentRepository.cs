@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contoso.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace Contoso.Data
 {
-    class DepartmentRepository : Repository<Department> , IDepartment
+    public class DepartmentRepository : Repository<Department>, IDepartmentRepository
     {
+        public DepartmentRepository(ContosoDbContext context) : base(context)
+        {
+        }
     }
-    public interface IDepartmentRepository : IRepository
+    public interface IDepartmentRepository : IRepository<Department>
+    {
+
+    }
 }
